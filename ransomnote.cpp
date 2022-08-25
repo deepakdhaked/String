@@ -9,18 +9,18 @@ bool canConstruct(string ransomNote, string magazine)
 {
     vector<int> hs(26, 0);
 
-    for (int i = 0; i < magazine.length(); i++)
+    for (char i : magazine)
     {
-        hs[magazine[i] - 'a'] += 1;
+        hs[i - 'a'] += 1;
     }
 
-    for (int i = 0; i < ransomNote.length(); i++)
+    for (char i : ransomNote)
     {
-        if (hs[ransomNote[i] - 'a'] == 0)
+        if (hs[i - 'a'] == 0)
         {
             return false;
         }
-        hs[ransomNote[i] - 'a'] -= 1;
+        hs[i - 'a'] -= 1;
     }
     return true;
 }
